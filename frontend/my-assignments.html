@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Assignments - EduFlow</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="material-symbols-outlined">menu</span>
+            <span class="material-symbols-outlined ml-2 text-primary">school</span>
+            EduFlow
+        </div>
+        <div class="navbar-links">
+            <a href="student-dashboard.html" class="nav-link">Dashboard</a>
+            <a href="my-assignments.html" class="nav-link active">Assignments</a>
+
+        </div>
+        <div class="navbar-right">
+            <div class="avatar avatar-sm border border-[var(--outline-variant)]" id="nav-avatar">JD</div>
+            <button class="theme-toggle btn-icon" id="theme-toggle">
+                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar border-r border-[var(--surface-container-high)]">
+        <div class="sidebar-header">
+            <div class="sidebar-label mb-1">Academic Portal</div>
+            <div class="text-xs text-muted font-medium">Student View</div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="student-dashboard.html" class="sidebar-item">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-assignments.html" class="sidebar-item active">
+                <span class="material-symbols-outlined">collections_bookmark</span>
+                <span>My Assignments</span>
+            </a>
+            <a href="submit-assignment.html" class="sidebar-item">
+                <span class="material-symbols-outlined">publish</span>
+                <span>Submissions</span>
+            </a>
+            <a href="grades-feedback.html" class="sidebar-item">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>Grades Feedback</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="avatar avatar-sm" id="sidebar-avatar">JD</div>
+            <div class="flex-1 overflow-hidden">
+                <div class="font-bold text-sm truncate" id="sidebar-name">Student</div>
+                <div class="text-xs text-muted truncate" id="sidebar-email">student@edu.org</div>
+            </div>
+            <span class="material-symbols-outlined text-muted cursor-pointer hover:text-error transition-colors" id="logout-btn" title="Logout">logout</span>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Page Header -->
+        <div class="mb-10 fade-up">
+            <div class="overline text-primary mb-2">YOUR COURSES</div>
+            <h1 class="mb-4">My Assignments</h1>
+            <p class="text-lg text-muted">Manage your upcoming deliverables and review finalized feedback.</p>
+        </div>
+
+        <!-- Filter & Search Row -->
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10 fade-up">
+            <div class="flex flex-wrap gap-2 bg-low p-1.5 rounded-full border border-[var(--surface-container-high)] w-full lg:w-auto overflow-x-auto">
+                <button class="filter-tab btn btn-ghost py-2 px-6 rounded-full text-sm shrink-0 bg-gradient text-white" data-filter="all">All</button>
+                <button class="filter-tab btn btn-ghost py-2 px-6 rounded-full text-sm text-muted shrink-0" data-filter="pending">Pending</button>
+                <button class="filter-tab btn btn-ghost py-2 px-6 rounded-full text-sm text-muted shrink-0" data-filter="submitted">Submitted</button>
+                <button class="filter-tab btn btn-ghost py-2 px-6 rounded-full text-sm text-muted shrink-0" data-filter="ai-review">Under Review</button>
+                <button class="filter-tab btn btn-ghost py-2 px-6 rounded-full text-sm text-muted shrink-0" data-filter="graded">Graded</button>
+            </div>
+            
+            <div class="input-wrapper w-full lg:w-80">
+                <span class="material-symbols-outlined input-icon text-muted">search</span>
+                <input type="text" id="assignment-search" class="input-field bg-highest border-none rounded-full" placeholder="Search topics...">
+            </div>
+        </div>
+
+        <!-- Assignments Grid (dynamic) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up-stagger" id="assignments-grid">
+            <!-- Populated by dashboard.js -->
+        </div>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

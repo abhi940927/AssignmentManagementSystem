@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - EduFlow</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="material-symbols-outlined">menu</span>
+            <span class="material-symbols-outlined ml-2 text-primary">school</span>
+            EduFlow
+        </div>
+        <div class="navbar-links">
+            <a href="student-dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="my-assignments.html" class="nav-link">Assignments</a>
+
+        </div>
+        <div class="navbar-right">
+            <div class="avatar avatar-sm border border-[var(--outline-variant)]" id="nav-avatar">JD</div>
+            <button class="theme-toggle btn-icon" id="theme-toggle">
+                <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar border-r border-[var(--surface-container-high)]">
+        <div class="sidebar-header">
+            <div class="sidebar-label mb-1">Academic Portal</div>
+            <div class="text-xs text-muted font-medium">Student View</div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="student-dashboard.html" class="sidebar-item active">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-assignments.html" class="sidebar-item">
+                <span class="material-symbols-outlined">collections_bookmark</span>
+                <span>My Assignments</span>
+            </a>
+            <a href="submit-assignment.html" class="sidebar-item">
+                <span class="material-symbols-outlined">publish</span>
+                <span>Submissions</span>
+            </a>
+            <a href="grades-feedback.html" class="sidebar-item">
+                <span class="material-symbols-outlined">analytics</span>
+                <span>Grades Feedback</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer mt-auto">
+            <div class="avatar avatar-sm" id="sidebar-avatar">JD</div>
+            <div class="flex-1 overflow-hidden">
+                <div class="font-bold text-sm truncate" id="sidebar-name">Student</div>
+                <div class="text-xs text-muted truncate" id="sidebar-email">student@edu.org</div>
+            </div>
+            <span class="material-symbols-outlined text-muted cursor-pointer hover:text-error transition-colors" id="logout-btn" title="Logout">logout</span>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Welcome Banner -->
+        <div class="bg-gradient rounded-2xl p-8 text-white flex justify-between items-center mb-10 shadow-ambient fade-up">
+            <div>
+                <h1 class="text-white text-3xl mb-2" id="welcome-name">Welcome back.</h1>
+                <p class="opacity-90 mb-6 text-lg" id="welcome-subtitle">You have assignments pending to review.</p>
+
+            </div>
+            <!-- Illustration -->
+            <div class="banner-icon-container" style="display: flex; width: 140px; height: 140px; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);">
+                <span class="material-symbols-outlined text-white" style="font-size: 5rem; opacity: 0.9;">school</span>
+            </div>
+        </div>
+
+        <!-- Metrics Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 fade-up-stagger">
+            <div class="card p-6 flex flex-col justify-between h-32">
+                <div class="flex justify-between items-start">
+                    <span class="material-symbols-outlined text-muted">calendar_today</span>
+                    <span class="sidebar-label">PENDING</span>
+                </div>
+                <div class="font-bold text-4xl text-primary font-manrope count-up" data-target="0">0</div>
+            </div>
+            
+            <div class="card p-6 flex flex-col justify-between h-32">
+                <div class="flex justify-between items-start">
+                    <span class="material-symbols-outlined text-muted">check_circle</span>
+                    <span class="sidebar-label">SUBMITTED</span>
+                </div>
+                <div class="font-bold text-4xl text-secondary font-manrope count-up" data-target="0">0</div>
+            </div>
+
+            <div class="card p-6 flex flex-col justify-between h-32">
+                <div class="flex justify-between items-start">
+                    <span class="material-symbols-outlined text-muted">trending_up</span>
+                    <span class="sidebar-label">AVG SCORE</span>
+                </div>
+                <div class="font-bold text-4xl text-tertiary font-manrope count-up" data-target="0" data-float="true" data-suffix="%">0</div>
+            </div>
+
+            <div class="card p-6 flex flex-col justify-between h-32">
+                <div class="flex justify-between items-start">
+                    <span class="material-symbols-outlined text-muted">menu_book</span>
+                    <span class="sidebar-label">COURSE</span>
+                </div>
+                <div class="font-bold text-4xl text-[var(--on-surface)] font-manrope" id="subject-count">0</div>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="flex flex-col lg:flex-row gap-10 fade-up">
+            
+            <!-- Left Column (70%) -->
+            <div class="w-full lg:w-[65%]">
+                <div class="flex justify-between items-end mb-6">
+                    <h3>Recent Assignments</h3>
+                    <a href="my-assignments.html" class="font-bold text-primary text-sm hover:underline">See all</a>
+                </div>
+
+                <!-- Assignment List (dynamic) -->
+                <div id="dashboard-assignments" class="card p-0 overflow-hidden mb-10 border border-[var(--surface-container-high)] shadow-sm">
+                    <div class="flex flex-col" id="assignment-list">
+                        <!-- Populated by dashboard.js -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column (35%) -->
+            <div class="w-full lg:w-[35%] flex flex-col gap-10">
+                
+                <!-- Notifications Card -->
+                <div class="card flex flex-col h-[400px]">
+                    <div class="flex justify-between items-center mb-6">
+                        <h4>Notifications</h4>
+                        <button class="btn btn-ghost p-2" id="clear-notifications" aria-label="Clear All">
+                            <span class="material-symbols-outlined text-muted text-lg">clear_all</span>
+                        </button>
+                    </div>
+                    
+                    <div id="notifications-list" class="flex-1 overflow-y-auto pr-2 flex flex-col gap-4">
+                        <div class="p-6 text-center text-muted text-sm">No new notifications.</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Trigger script for dashboard specific logic -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
