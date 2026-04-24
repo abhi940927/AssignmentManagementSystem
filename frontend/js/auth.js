@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const course = courseSelect ? courseSelect.value : '';
 
     try {
-      const API_BASE = "https://assignment-management-2j7b.onrender.com/api";
+      const API_BASE = "https://assignment-management-lake.vercel.app/api";
       const response = await fetch(`${API_BASE}/auth/register`, {
         method: 'POST',
         headers: {
