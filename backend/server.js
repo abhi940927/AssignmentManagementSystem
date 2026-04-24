@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const fs = require('fs');
 
 dotenv.config();
 
@@ -13,22 +12,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '..', 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+// Static uploads folder
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
-// Serve uploaded files
-app.use('/uploads', express.static(uploadsDir));
-
-// Serve frontend files
+// Frontend files
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
-// MongoDB Connection
-mongoose.connect(
-  process.env.MONGO_URI || 'mongodb://localhost:27017/webproject'
-)
+// MongoDB connect
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 
@@ -38,16 +29,17 @@ app.use('/api/assignments', require('./routes/assignments'));
 app.use('/api/submissions', require('./routes/submissions'));
 app.use('/api/students', require('./routes/students'));
 
-// Default route
+// Home route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
 });
 
-// Local run only
+// Localhost only
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 }
 
-// Export for Vercel
 module.exports = app;
