@@ -6,15 +6,13 @@ const path = require('path');
 const fs = require('fs');
 
 dotenv.config();
-// Middleware
-app.use(cors());
-app.use(express.json());
+
 
 const app = express();
 
-// // Middleware
-// app.use(cors());
-// app.use(express.json());
+// Middleware
+app.use(cors());
+app.use(express.json());
 
 // Ensure uploads directory exists
 const uploadsDir = path.join(__dirname, '..', 'uploads');
