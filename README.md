@@ -71,8 +71,7 @@ Follow these instructions to set up the EduFlow platform on your local machine f
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ShashankPandey304/Assignment_Evaluator.git
-   cd Assignment_Evaluator
+   https://github.com/abhi940927/AssignmentManagementSystem.git
    ```
 
 2. **Setup the Backend**
