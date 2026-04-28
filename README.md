@@ -134,10 +134,10 @@ EduFlow/
 ## 📜 License & Credits
 
 This is a proprietary team project developed by:
-abhinav
-akshay
-manish
-jitendar rathore
+Abhinav,
+Akshay,
+Manish,
+Jitendar rathore.
 
 
 All rights reserved. Do not copy or distribute without permission.
