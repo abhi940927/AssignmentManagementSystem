@@ -134,9 +134,11 @@ EduFlow/
 ## 📜 License & Credits
 
 This is a proprietary team project developed by:
-* **Shashank Pandey**
-* **Akrash Saini**
-* **Druv Kumar**
+abhinav
+akshay
+manish
+jitendar rathore
+
 
 All rights reserved. Do not copy or distribute without permission.
 
